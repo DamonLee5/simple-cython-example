@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <omp.h>
 int square(int x)
 {
     return x*x;
@@ -10,7 +11,8 @@ float rms(int* arr, int n)
     float mean = 0.0, root = 0.0; 
   
     // Calculate square. 
-    for (int i = 0; i < n; i++) { 
+    int i;
+    for (i = 0; i < n; i++) { 
         square += arr[i]*arr[i]; 
     } 
   
@@ -26,7 +28,12 @@ float rms(int* arr, int n)
 float rmse(int* arr1, int* arr2, int n)
 {
     int arrt[n];
-    for (int i=0; i<n; i++)
+    int i;
+    for (i=0; i<n; i++)
         arrt[i]=arr1[i]-arr2[i];
     return rms(arrt,n);
+}
+
+void openmp_test(){
+    printf("Hello from process: %d\n", omp_get_thread_num());
 }

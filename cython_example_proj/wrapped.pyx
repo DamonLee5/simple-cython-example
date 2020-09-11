@@ -16,6 +16,7 @@ cdef extern from "lib/cfunc.h":
     int square(int x)
     DTYPE_t rms(int* a, int n)
     DTYPE_t rmse(int* arr1, int* arr2, int n)
+    void openmp_test()
 
 
 def c_square(int x):
@@ -33,3 +34,6 @@ def c_rmse(int[:] arr1,int[:] arr2,int n):
     # int[:] is a python object (a typed memory view) so it can be passed to a python function (def or cpdef).
     l = rmse(&arr1[0],&arr2[0],n)
     return l
+
+def c_openmp_test():
+    openmp_test()
