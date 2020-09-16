@@ -19,7 +19,10 @@ PACKAGES = [SRC_DIR]
 ext_1 = Extension(SRC_DIR + ".wrapped",
                   [SRC_DIR + "/lib/cfunc.c", SRC_DIR + "/wrapped.pyx"],
                   libraries=[],
-                  include_dirs=[np.get_include()])
+                  include_dirs=[np.get_include()],
+                  extra_compile_args=["-fopenmp", "-O3"],
+                  extra_link_args=["-fopenmp"])
+
 
 
 EXTENSIONS = [ext_1]

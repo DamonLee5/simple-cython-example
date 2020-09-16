@@ -35,5 +35,11 @@ float rmse(int* arr1, int* arr2, int n)
 }
 
 void openmp_test(){
-    printf("Hello from process: %d\n", omp_get_thread_num());
+    omp_set_dynamic(0);     // Explicitly disable dynamic teams
+    omp_set_num_threads(4); // Use 4 threads for all consecutive parallel regions
+    #pragma omp parallel
+    {
+        printf("Hello from process: %d\n", omp_get_thread_num());
+    }
 }
+    

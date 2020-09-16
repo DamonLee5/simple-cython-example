@@ -1,7 +1,7 @@
 import logging
 import unittest
 import numpy as np
-from cython_example_proj import c_square, c_rms, c_rmse
+from cython_example_proj import c_square, c_rms, c_rmse, c_openmp_test
 print(c_square(10))
 a= np.array([1,2,3,4,5]).astype('int32')
 print('a:',a)
@@ -13,3 +13,5 @@ b2=a*2
 print('b1:',b1)
 print('b2:',b2)
 print(c_rmse(b1,b2,5))
+
+c_openmp_test()
