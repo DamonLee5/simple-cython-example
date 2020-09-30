@@ -25,6 +25,28 @@ float rms(int* arr, int n)
     return root; 
 } 
 
+float rms_2D(int** arr, int n) 
+{ 
+    int square = 0; 
+    float mean = 0.0, root = 0.0; 
+  
+    // Calculate square. 
+    int i,j;
+    for (i = 0; i < n; i++) 
+       for (j = 0; j < n; j++){ 
+        square += arr[i][j]*arr[i][j]; 
+    } 
+  
+    // Calculate Mean. 
+    mean = (square / (float)(n)); 
+  
+    // Calculate Root. 
+    root = sqrt(mean); 
+  
+    return root; 
+}
+
+
 float rmse(int* arr1, int* arr2, int n)
 {
     int arrt[n];
