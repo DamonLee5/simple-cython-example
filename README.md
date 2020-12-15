@@ -10,7 +10,7 @@ Then just run `python setup.py develop` to build the project in-place.
 If you are using a MacOS, you need to first:
 ```shell
 brew reinstall gcc
-cd /usr/loacl/bin
+cd /usr/local/bin
 ln -s gcc-10 gcc
 ln -s g++-10 g++
 ```
